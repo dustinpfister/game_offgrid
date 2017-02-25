@@ -1,0 +1,29 @@
+
+
+items :
+
+* trailer
+* solar panels
+
+
+states :
+
+    * landMap
+
+        * The land map state shows the current parcel, and whats on it.
+        * you can place items that you bought on the land parcel.
+        * you can move items.
+        * you can grow plant crops.
+        * you can harvest crops.
+
+    * budget 
+
+        * In the budget state you can see how things are doing with money.
+        * 
+
+    * person
+
+        * In this state you can check the current status of your health
+        * 
+
+    * shop
