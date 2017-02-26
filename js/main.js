@@ -21,8 +21,9 @@ var game = (function () {
         create : function () {
 
             game.state.add('parcel', Parcel.phaserState);
+            game.state.add('person', Person.phaserState);
 
-            game.state.start('parcel');
+            game.state.start('person');
 
         },
 
