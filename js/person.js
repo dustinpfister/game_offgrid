@@ -75,15 +75,7 @@ var Person = (function () {
             // what to create for person state
             console.log('I am ready to rock!');
 
-            game.add.bitmapText(10, 10, 'zelda', 'abcdefghijklmnopqrstuvwxyz', 10);
-            game.add.bitmapText(10, 22, 'zelda', 'abcdefghijklmnopqrstuvwxyz', 22);
-
-            game.add.bitmapText(10, 50, 'zelda', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 10);
-            game.add.bitmapText(10, 62, 'zelda', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 22);
-
-            game.add.bitmapText(10, 90, 'zelda', 'The quick brown fox jumped over the lazy dog.', 11);
-
-            game.add.bitmapText(10, 120, 'zelda', '0123456789', 11);
+            game.add.bitmapText(10, 10, 'zelda', 'Person : ', 10);
 
         },
 

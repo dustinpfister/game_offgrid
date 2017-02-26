@@ -71,11 +71,9 @@
         <char id="56" x="120" y="60" width="12" height="26" xoffset="0" yoffset="0" xadvance="12" page="0" chnl="0" letter="8"/>
         <char id="57" x="135" y="60" width="12" height="26" xoffset="0" yoffset="0" xadvance="12" page="0" chnl="0" letter="9"/>
 
-
-        <char id="38" x="253" y="200" width="33" height="54" xoffset="3" yoffset="22" xadvance="30" page="0" chnl="0" letter="&amp;"/>
-        <char id="60" x="43" y="308" width="41" height="46" xoffset="2" yoffset="24" xadvance="37" page="0" chnl="0" letter="&lt;"/>
-        <char id="34" x="114" y="391" width="19" height="20" xoffset="2" yoffset="17" xadvance="16" page="0" chnl="0" letter="&quot;"/>
         <char id="32" x="0" y="0" width="1" height="1" xoffset="0" yoffset="0" xadvance="10" page="0" chnl="0" letter="space"/>
-    </chars>
+        <char id="58" x="195" y="60" width="12" height="26" xoffset="2" yoffset="0" xadvance="12" page="0" chnl="0" letter="&lt;"/>
+
+</chars>
 
 </font>
