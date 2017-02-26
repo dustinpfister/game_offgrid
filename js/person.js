@@ -79,7 +79,7 @@ var Person = (function () {
             game.add.bitmapText(10, 22, 'zelda', 'abcdefghijklmnopqrstuvwxyz',22);
 
             game.add.bitmapText(10, 60, 'zelda', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',10);
-            game.add.bitmapText(10, 80, 'zelda', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',10);
+            game.add.bitmapText(10, 80, 'zelda', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',22);
 
 
         },
