@@ -15,7 +15,7 @@ var game = (function () {
             game.load.spritesheet('items_2_1', 'img/items_2_1.png', 32, 16);
             game.load.spritesheet('items_1_2', 'img/items_1_2.png', 16, 32);
 
-            game.load.bitmapFont('zelda', 'img/font_zelda.png', 'img/font_zelda.xml');
+            game.load.bitmapFont('zelda', 'fonts/font_zelda.png', 'fonts/font_zelda.xml');
 
         },
 
