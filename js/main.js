@@ -4,10 +4,13 @@ var main = (function () {
 
     var current = {
 
+        //startTime : new Date(2017,1,1),
         startTime : new Date(),
-        gameDayLength : 250, // how long a game day is in ms
-        day : 1,
-        month : 1
+        gameDayLength : 10000, // how long a game day is in ms
+        days : 0,
+        t : 0,
+        d : 1,
+        m : 1
 
     },
 
@@ -19,13 +22,13 @@ var main = (function () {
 
     api.update = function () {
 
-        var now = new Date(),
+        var now = new Date();
 
-        days = Math.floor((now - current.startTime) / current.gameDayLength);
+        current.days = Math.floor((now - current.startTime) / current.gameDayLength);
 
-        current.month = Math.floor(days / 30) + 1;
-
-        current.day = days % 30 + 1;
+        current.t = (now - current.startTime) % current.gameDayLength / current.gameDayLength;
+        current.d = current.days % 30 + 1;
+        current.m = Math.floor(current.days / 30) + 1;
 
     };
 
