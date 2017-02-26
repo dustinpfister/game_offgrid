@@ -75,6 +75,13 @@ var Person = (function () {
             // what to create for person state
             console.log('I am ready to rock!');
 
+            game.add.bitmapText(10, 10, 'zelda', 'abcdefghijkl',10);
+            game.add.bitmapText(10, 20, 'zelda', 'mnopqrstuvwxyz',10);
+
+            game.add.bitmapText(10, 60, 'zelda', 'ABCDEFGHIJKL',10);
+            game.add.bitmapText(10, 80, 'zelda', 'MNOPQRSTUVWXYZ',10);
+
+
         },
 
         // update for person state
