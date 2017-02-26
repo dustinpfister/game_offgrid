@@ -72,6 +72,7 @@
         <char id="57" x="135" y="60" width="12" height="26" xoffset="0" yoffset="0" xadvance="12" page="0" chnl="0" letter="9"/>
 
         <char id="32" x="0" y="0" width="1" height="1" xoffset="0" yoffset="0" xadvance="10" page="0" chnl="0" letter="space"/>
+        <char id="46" x="225" y="60" width="8" height="8" xoffset="2" yoffset="18" xadvance="12" page="0" chnl="0" letter="&lt;"/>
         <char id="58" x="195" y="60" width="12" height="26" xoffset="2" yoffset="0" xadvance="12" page="0" chnl="0" letter="&lt;"/>
 
 </chars>

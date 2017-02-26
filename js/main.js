@@ -1,4 +1,39 @@
 
+// responsible for time, and game state
+var main = (function () {
+
+    var current = {
+
+        startTime : new Date(),
+        gameDayLength : 250, // how long a game day is in ms
+        day : 1,
+        month : 1
+
+    },
+
+    api = function () {
+
+        return current;
+
+    };
+
+    api.update = function () {
+
+        var now = new Date(),
+
+        days = Math.floor((now - current.startTime) / current.gameDayLength);
+
+        current.month = Math.floor(days / 30) + 1;
+
+        current.day = days % 30 + 1;
+
+    };
+
+    return api;
+
+}
+    ());
+
 // the main Phaser game instance
 var game = (function () {
 
