@@ -19,33 +19,29 @@ var Stuff = (function () {
             ]
         }
 
-    ];
+    ],
+
+    // build the index for itemBase
+    itemIndex = (function () {
+
+        var index = {};
+
+        itemBase.forEach(function (item, itemIndex) {
+
+            index[item.id] = itemIndex;
+
+        });
+
+        return index;
+
+    }
+        ());
 
     var api = function () {};
 
     api.getItemById = function (id) {
 
-        var theItem = '',
-        item,
-        i = 0,
-        len = itemBase.length;
-        while (i < len) {
-
-            item = itemBase[i];
-
-            if (item.id === id) {
-
-                theItem = itemBase[i];
-                break;
-
-            }
-
-            i += 1;
-
-        }
-
-		// return the item or an empty object
-        return theItem || {};
+        return itemBase[itemIndex[id]];
 
     };
 
