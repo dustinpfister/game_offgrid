@@ -41,7 +41,8 @@ var main = (function () {
 
         daysPast = state.days - state.lastTime.days;
 
-        Person.updateState(daysPast);
+        Person.updateState(state.days);
+        //Person.updateState(daysPast);
         Budget.updateState(daysPast);
 
         state.lastTime = {

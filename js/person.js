@@ -54,8 +54,10 @@ var Person = (function () {
         for (nutrientName in status.nutrient) {
 
             nutrient = status.nutrient[nutrientName];
-            nutrient.grams -= nutrient.lossRate * days;
+            //nutrient.grams -= nutrient.lossRate * days;
 
+			nutrient.grams = nutrient.startGrams + nutrient.eatTotal - nutrient.lossRate * days;
+			
             if (nutrient.grams < 0) {
 
                 nutrient.grams = 0;
@@ -124,8 +126,9 @@ Person.load(JSON.stringify({
 
             protein : {
 
-                grams : 60,
-                startGrams : 60,
+                grams : 10,
+                eatTotal : 0,
+                startGrams : 10,
                 maxGrams : 120,
                 lossRate : 60 // loss of grams per game day
 
@@ -133,7 +136,8 @@ Person.load(JSON.stringify({
 
             carbs : {
 
-                grams : 300,
+                grams : 40,
+                eatTotal : 0,
                 startGrams : 150,
                 maxGrams : 600,
                 lossRate : 300
