@@ -8,22 +8,13 @@ var Person = (function () {
 
     var status = {
 
-        //lastUpdate : new Date(2017, 1, 25),
-        //lastUpdate : new Date(),
-        lastUpdate : {
-
-            t : 0,
-            d : 1,
-            m : 1
-
-        },
         weight : 140,
         food : {
 
             protein : {
 
-                grams : 60,
-                maxGrams : 100,
+                grams : 120,
+                maxGrams : 120,
                 lossRate : 60 // loss of grams per game day
 
             },
@@ -42,53 +33,6 @@ var Person = (function () {
 
     text = {},
 
-    /*
-    updateState = function (timeMS) {
-
-    var foodName,
-    food,
-    preSec;
-
-    // dubble time
-    //timeMS = timeMS * 2;
-
-    for (foodName in status.food) {
-
-    food = status.food[foodName];
-    perSec = food.lossRate / 24 / 60 / 60;
-
-    food.grams -= perSec * (timeMS / 1000);
-    }
-
-    status.lastUpdate = new Date();
-    },
-
-     */
-
-    updateState = function (current) {
-
-        var foodName,
-        food,
-        preSec;
-
-        for (foodName in status.food) {
-
-            food = status.food[foodName];
-
-            food.grams -= food.lossRate * (current.t - status.lastUpdate.t);
-
-        }
-
-        status.lastUpdate = {
-
-            t : current.t,
-            d : current.d,
-            m : current.m
-
-        };
-
-    },
-
     // the public API
     api = function () {
 
@@ -103,6 +47,23 @@ var Person = (function () {
             status.food[uptake.name].grams += uptake.grams;
 
         });
+
+    };
+
+    api.updateState = function (days) {
+
+        var foodName,
+        food,
+        preSec;
+
+        for (foodName in status.food) {
+
+            food = status.food[foodName];
+
+            food.grams -= food.lossRate * days;
+
+        }
+
 
     };
 
@@ -128,7 +89,7 @@ var Person = (function () {
 
             // update main
             main.update();
-            updateState(main());
+            //updateState(main());
 
             /*
             if (time >= 100) {

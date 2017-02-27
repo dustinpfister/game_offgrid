@@ -2,11 +2,18 @@
 // responsible for time, and game state
 var main = (function () {
 
-    var current = {
+    var state = {
 
-        //startTime : new Date(2017,1,1),
-        startTime : new Date(),
-        gameDayLength : 10000, // how long a game day is in ms
+        startTime : new Date(2017, 1, 26, 7, 43),
+        lastTime : {
+            days : 0,
+            t : 0,
+            d : 1,
+            m : 1
+
+        },
+        //startTime : new Date(),
+        gameDayLength : 500 * 60 * 60 * 24, // how long a game day is in ms
         days : 0,
         t : 0,
         d : 1,
@@ -16,7 +23,7 @@ var main = (function () {
 
     api = function () {
 
-        return current;
+        return state;
 
     };
 
@@ -24,11 +31,21 @@ var main = (function () {
 
         var now = new Date();
 
-        current.days = Math.floor((now - current.startTime) / current.gameDayLength);
+        state.days = (now - state.startTime) / state.gameDayLength;
+        state.t = (now - state.startTime) % state.gameDayLength / state.gameDayLength;
+        state.d = Math.floor(state.days) % 30 + 1;
+        state.m = Math.floor(state.days / 30) + 1;
 
-        current.t = (now - current.startTime) % current.gameDayLength / current.gameDayLength;
-        current.d = current.days % 30 + 1;
-        current.m = Math.floor(current.days / 30) + 1;
+        Person.updateState(state.days - state.lastTime.days);
+
+        state.lastTime = {
+
+            days : state.days,
+            t : state.t,
+            d : state.d,
+            m : state.m
+
+        };
 
     };
 
