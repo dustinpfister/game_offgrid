@@ -25,7 +25,8 @@ var Person = (function () {
         // loop over all item counts in status.consumed, and update totals
         status.consumed.forEach(function (itemCount) {
 
-            var item = Stuff.getItemById(itemCount.id);
+            var item = Stuff.getItemById(itemCount.id),
+            total;
 
             console.log('updaing eatTotals for ' + item.desc);
 
@@ -34,12 +35,16 @@ var Person = (function () {
                 if (nutrientName in item.uptakes) {
 
                     console.log(item.id + ' has ' + nutrientName);
+                    total = item.uptakes[nutrientName].amount * itemCount.count;
+                    status.nutrient[nutrientName].eatTotal += total;
 
                 }
 
             }
 
         });
+
+        console.log(status);
 
     },
 
