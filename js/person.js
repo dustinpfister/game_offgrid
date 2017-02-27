@@ -25,6 +25,12 @@ var Person = (function () {
             // copy in the object
             status = JSON.parse(JSON.stringify(personObj));
 
+        } else {
+
+            // else assume a string is given, and it is JSON
+
+            status = JSON.parse(personObj);
+
         }
 
     };
@@ -109,7 +115,7 @@ var Person = (function () {
     ());
 
 // hard coded person status.
-Person.load({
+Person.load(JSON.stringify({
 
     weight : 140,
     nutrient : {
@@ -134,8 +140,7 @@ Person.load({
 
     },
 
-    foodItemsConsumed : [
-        {
+    foodItemsConsumed : [{
 
             id : 0,
             count : 3
@@ -144,4 +149,4 @@ Person.load({
 
     ]
 
-});
+}));
