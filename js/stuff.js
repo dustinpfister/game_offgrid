@@ -9,14 +9,32 @@ var Stuff = (function () {
             id : 'f_0', // (food item _ Number 0)
             desc : 'Back beans 15.5oz can',
             cost : 0.65,
-            uptakes : [{
-                    nutrient : 'protein',
+
+            uptakes : {
+
+                protein : {
                     amount : 33
-                }, {
-                    nutrient : 'carbs',
+                },
+                carbs : {
                     amount : 90
                 }
-            ]
+
+            }
+
+        },
+        {
+            id : 'f_1',
+            desc : 'Apple',
+            cost : 0.30,
+
+            uptakes : {
+
+                carbs : {
+                    amount : 150
+                }
+
+            }
+
         }
 
     ],

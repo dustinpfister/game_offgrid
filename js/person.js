@@ -15,15 +15,29 @@ var Person = (function () {
 
         var nutrientName;
 
-        // loop threw status.consumed
+        // first set all eat totals to zero
+        for (nutrientName in status.nutrient) {
+
+            status.nutrient[nutrientName].eatTotal = 0;
+
+        }
+
+        // loop over all item counts in status.consumed, and update totals
         status.consumed.forEach(function (itemCount) {
 
             var item = Stuff.getItemById(itemCount.id);
 
-			console.log(item);
-            console.log('updaing eatTotals for ');
+            console.log('updaing eatTotals for ' + item.desc);
 
-            //for (nutrientName in status.nutrient) {}
+            for (nutrientName in status.nutrient) {
+
+                if (nutrientName in item.uptakes) {
+
+                    console.log(item.id + ' has ' + nutrientName);
+
+                }
+
+            }
 
         });
 
@@ -103,8 +117,6 @@ var Person = (function () {
             text['protein'] = game.add.bitmapText(10, 30, 'zelda', '', 10);
             text['carbs'] = game.add.bitmapText(10, 50, 'zelda', '', 10);
 
-            console.log(Stuff.getItemById('f_0'));
-
         },
 
         // update for person state
@@ -168,10 +180,20 @@ Person.load(JSON.stringify({
 
         },
 
-        consumed : [{
+        consumed : [
+
+            // back beans
+            {
 
                 id : 'f_0',
                 count : 3
+
+            },
+
+            // apples
+            {
+                id : 'f_1',
+                count : 1
 
             }
 
