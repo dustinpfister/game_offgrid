@@ -10,6 +10,25 @@ var Person = (function () {
 
     text = {},
 
+    //  update eatTotal for all nutrients
+    updateEats = function () {
+
+        var nutrientName;
+
+        // loop threw status.consumed
+        status.consumed.forEach(function (itemCount) {
+
+            var item = Stuff.getItemById(itemCount.id);
+
+			console.log(item);
+            console.log('updaing eatTotals for ');
+
+            //for (nutrientName in status.nutrient) {}
+
+        });
+
+    },
+
     // the public API
     api = function () {
 
@@ -32,6 +51,9 @@ var Person = (function () {
             status = JSON.parse(personObj);
 
         }
+
+        // update eats totals
+        updateEats();
 
     };
 
@@ -56,8 +78,8 @@ var Person = (function () {
             nutrient = status.nutrient[nutrientName];
             //nutrient.grams -= nutrient.lossRate * days;
 
-			nutrient.grams = nutrient.startGrams + nutrient.eatTotal - nutrient.lossRate * days;
-			
+            nutrient.grams = nutrient.startGrams + nutrient.eatTotal - nutrient.lossRate * days;
+
             if (nutrient.grams < 0) {
 
                 nutrient.grams = 0;
@@ -148,7 +170,7 @@ Person.load(JSON.stringify({
 
         consumed : [{
 
-                id : 0,
+                id : 'f_0',
                 count : 3
 
             }
