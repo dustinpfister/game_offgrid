@@ -4,16 +4,18 @@ var main = (function () {
 
     var state = {
 
-        startTime : new Date(2017, 1, 1, 0, 0),
+        //startTime : new Date(2017, 1, 1, 0, 0),
+        startTime : new Date(),
         lastTime : {
-            days : 25,//12.952,
+            days : 0, //12.952,
             t : 0,
             d : 0,
             m : 0
 
         },
         //startTime : new Date(),
-        gameDayLength : 1000 * 60 * 60 * 24, // how long a game day is in ms
+        //gameDayLength : 1000 * 60 * 60 * 24, // how long a game day is in ms
+        gameDayLength : 1000 * 60 * 7,
         days : 0,
         t : 0,
         d : 1,

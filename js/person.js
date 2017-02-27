@@ -6,30 +6,7 @@
 
 var Person = (function () {
 
-    var status = {
-
-        weight : 140,
-        nutrient : {
-
-            protein : {
-
-                grams : 120,
-                maxGrams : 120,
-                lossRate : 60 // loss of grams per game day
-
-            },
-
-            carbs : {
-
-                grams : 600,
-                maxGrams : 600,
-                lossRate : 300
-
-            }
-
-        }
-
-    },
+    var status = {},
 
     text = {},
 
@@ -37,6 +14,18 @@ var Person = (function () {
     api = function () {
 
         return status;
+
+    };
+
+    api.load = function (personObj) {
+
+        // if an object
+        if (typeof personObj === 'object') {
+
+            // copy in the object
+            status = JSON.parse(JSON.stringify(personObj));
+
+        }
 
     };
 
@@ -118,3 +107,41 @@ var Person = (function () {
 
 }
     ());
+
+// hard coded person status.
+Person.load({
+
+    weight : 140,
+    nutrient : {
+
+        protein : {
+
+            grams : 60,
+            startGrams : 60,
+            maxGrams : 120,
+            lossRate : 60 // loss of grams per game day
+
+        },
+
+        carbs : {
+
+            grams : 300,
+            startGrams : 150,
+            maxGrams : 600,
+            lossRate : 300
+
+        }
+
+    },
+
+    foodItemsConsumed : [
+        {
+
+            id : 0,
+            count : 3
+
+        }
+
+    ]
+
+});
