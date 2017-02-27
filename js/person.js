@@ -9,11 +9,11 @@ var Person = (function () {
     var status = {
 
         weight : 140,
-        food : {
+        nutrient : {
 
             protein : {
 
-                grams : 60,
+                grams : 120,
                 maxGrams : 120,
                 lossRate : 60 // loss of grams per game day
 
@@ -21,8 +21,8 @@ var Person = (function () {
 
             carbs : {
 
-                grams : 300,
-                maxGrams : 450,
+                grams : 600,
+                maxGrams : 600,
                 lossRate : 300
 
             }
@@ -44,7 +44,7 @@ var Person = (function () {
 
         foodObj.uptakes.forEach(function (uptake) {
 
-            status.food[uptake.name].grams += uptake.grams;
+            status.nutrient[uptake.nutrient].grams += uptake.grams;
 
         });
 
@@ -52,18 +52,18 @@ var Person = (function () {
 
     api.updateState = function (days) {
 
-        var foodName,
-        food,
+        var nutrientName,
+        nutrient,
         preSec;
 
-        for (foodName in status.food) {
+        for (nutrientName in status.nutrient) {
 
-            food = status.food[foodName];
-            food.grams -= food.lossRate * days;
+            nutrient = status.nutrient[nutrientName];
+            nutrient.grams -= nutrient.lossRate * days;
 
-            if (food.grams < 0) {
+            if (nutrient.grams < 0) {
 
-                food.grams = 0;
+                nutrient.grams = 0;
 
             }
 
@@ -106,8 +106,8 @@ var Person = (function () {
              */
 
             text['money'].text = 'money: ' + Budget().bal.toFixed(2);
-            text['protein'].text = 'Protein : ' + status.food.protein.grams.toFixed(4);
-            text['carbs'].text = 'Carbs : ' + status.food.carbs.grams.toFixed(4);
+            text['protein'].text = 'Protein : ' + status.nutrient.protein.grams.toFixed(2);
+            text['carbs'].text = 'Carbs : ' + status.nutrient.carbs.grams.toFixed(2);
             text['time'].text = 'T : ' + main().t.toFixed(2) + ' Day : ' + main().d + ' Month: ' + main().m;
 
         }

@@ -1,6 +1,6 @@
 
 // The Stuff
-var Stuff= (function () {
+var Stuff = (function () {
 
     var api = function () {};
 

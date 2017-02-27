@@ -6,7 +6,7 @@ var main = (function () {
 
         startTime : new Date(2017, 1, 1, 0, 0),
         lastTime : {
-            days : 25,
+            days : 25,//12.952,
             t : 0,
             d : 0,
             m : 0

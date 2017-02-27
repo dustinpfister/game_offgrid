@@ -36,6 +36,12 @@ var Budget = (function () {
 
         current.bal -= current.drain[0].amount / 30 * days;
 
+        if (current.bal < 0) {
+
+            current.bal = 0;
+
+        }
+
     };
 
     return api;

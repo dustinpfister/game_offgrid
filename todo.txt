@@ -10,3 +10,28 @@
 * budget.js added that is used to handle income, current account balance, and anything else that has to do with the players money.
 * shop.js added that will contain everything that has to do with the price, and availability of items for purchase.
 * stuff.js will hold all things the player owns.
+
+## Person().nutrient[nutrientName].eatTotal
+
+In person.js it may be better to do something like this:
+
+    nutrient = status.nutrient[nutrientName];
+    nutrient.grams = nutrient.startGrams + nutrient.eatTotal - nutrient.lossRate * totalDays;
+
+To know value of the new eatTotal property it would be necessary to store some kind of a count of what gives an amount of a nutrient that has been consumed. Because I want to have it so there is a choice of food items to eat, that all give differing amounts of nutrients. This should be doable by simply storing a count for each food item.
+
+At present a food item object looks something like this
+
+var foodItem = {
+    itemNumber: : 0,
+    desc : 'back beans 15.5oz can',
+    cost : '0.65',
+    uptakes = [
+        {nutrient: 'protein', amount : 33}
+        {nutrient: 'carbs', amount: 90}
+    ]
+};
+
+So it looks like I will end up having this type of object involved in three of my *.js files. In store.js there would be a count of the stock of this item. In stuff.js there would be a count of this item that they have on hand. In addition finally I would also want to store a count of this item in person.js, that is the count of this item that has been consumed.
+
+By knowing the count that has been consumed, it is just simply a matter of multiplying that count for each nutrient in the items uptakes array, to get an all time total for each nutrient, for the item. I would then want to do this with all food items, and add all the values together to get a number that is the total amount of grams consumed for each nutrient. Thus I will then have my nutrient.eatTotal value, that can then be used in figuring the current standing for the players nutrition.
