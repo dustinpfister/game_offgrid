@@ -23,11 +23,11 @@ To know value of the new eatTotal property it would be necessary to store some k
 At present a food item object looks something like this
 
 var foodItem = {
-    itemNumber: : 0,
+    itemNumber: 0,
     desc : 'back beans 15.5oz can',
     cost : '0.65',
-    uptakes = [
-        {nutrient: 'protein', amount : 33}
+    uptakes : [
+        {nutrient: 'protein', amount : 33},
         {nutrient: 'carbs', amount: 90}
     ]
 };
