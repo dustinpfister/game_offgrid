@@ -13,7 +13,7 @@ var Person = (function () {
 
             protein : {
 
-                grams : 120,
+                grams : 60,
                 maxGrams : 120,
                 lossRate : 60 // loss of grams per game day
 
@@ -21,7 +21,7 @@ var Person = (function () {
 
             carbs : {
 
-                grams : 40,
+                grams : 300,
                 maxGrams : 450,
                 lossRate : 300
 
@@ -59,11 +59,15 @@ var Person = (function () {
         for (foodName in status.food) {
 
             food = status.food[foodName];
-
             food.grams -= food.lossRate * days;
 
-        }
+            if (food.grams < 0) {
 
+                food.grams = 0;
+
+            }
+
+        }
 
     };
 
@@ -75,8 +79,10 @@ var Person = (function () {
             // what to create for person state
             console.log('I am ready to rock!');
 
-            text['time'] = game.add.bitmapText(10, 10, 'zelda', 'D : 1 M : 1', 10);
-            text['protein'] = game.add.bitmapText(10, 30, 'zelda', 'Protein : ' + status.food.protein.grams, 10);
+            text['money'] = game.add.bitmapText(10, 10, 'zelda', '', 10);
+            text['time'] = game.add.bitmapText(180, 10, 'zelda', '', 9);
+            text['protein'] = game.add.bitmapText(10, 30, 'zelda', '', 10);
+            text['carbs'] = game.add.bitmapText(10, 50, 'zelda', '', 10);
 
         },
 
@@ -99,7 +105,9 @@ var Person = (function () {
             }
              */
 
+            text['money'].text = 'money: ' + Budget().bal.toFixed(2);
             text['protein'].text = 'Protein : ' + status.food.protein.grams.toFixed(4);
+            text['carbs'].text = 'Carbs : ' + status.food.carbs.grams.toFixed(4);
             text['time'].text = 'T : ' + main().t.toFixed(2) + ' Day : ' + main().d + ' Month: ' + main().m;
 
         }

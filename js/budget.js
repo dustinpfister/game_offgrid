@@ -14,7 +14,7 @@ var Budget = (function () {
             }
 
         ],
-        drain : [ // what is draining money
+        drain : [// what is draining money
 
 
             {
@@ -26,7 +26,17 @@ var Budget = (function () {
 
     };
 
-    var api = function () {};
+    var api = function () {
+
+        return current;
+
+    };
+
+    api.updateState = function (days) {
+
+        current.bal -= current.drain[0].amount / 30 * days;
+
+    };
 
     return api;
 

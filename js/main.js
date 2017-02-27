@@ -4,16 +4,16 @@ var main = (function () {
 
     var state = {
 
-        startTime : new Date(2017, 1, 26, 7, 43),
+        startTime : new Date(2017, 1, 1, 0, 0),
         lastTime : {
-            days : 0,
+            days : 25,
             t : 0,
-            d : 1,
-            m : 1
+            d : 0,
+            m : 0
 
         },
         //startTime : new Date(),
-        gameDayLength : 500 * 60 * 60 * 24, // how long a game day is in ms
+        gameDayLength : 1000 * 60 * 60 * 24, // how long a game day is in ms
         days : 0,
         t : 0,
         d : 1,
@@ -29,14 +29,18 @@ var main = (function () {
 
     api.update = function () {
 
-        var now = new Date();
+        var now = new Date(),
+        daysPast;
 
         state.days = (now - state.startTime) / state.gameDayLength;
         state.t = (now - state.startTime) % state.gameDayLength / state.gameDayLength;
         state.d = Math.floor(state.days) % 30 + 1;
         state.m = Math.floor(state.days / 30) + 1;
 
-        Person.updateState(state.days - state.lastTime.days);
+        daysPast = state.days - state.lastTime.days;
+
+        Person.updateState(daysPast);
+        Budget.updateState(daysPast);
 
         state.lastTime = {
 

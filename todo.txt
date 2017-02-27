@@ -3,7 +3,10 @@
 1.0.x - First Release
 
 * Basic crude structure of game in place
-* person.js added containing the phaser game state, as well as other helpers and classes relevant to the state of the person.
+* person.js added this contains a phaser state, as well as other relevant methods.
+* main.js contains the main phaser state, and a module that has to do with the management of time.
 * parcel.js added to help with everything relating to the land parcel.
-* budget.js added that is used to handle income, current account balance, and anything else that has to do with money.
-* shop.js added that contains everything that has to do with the price, and availability of items for purchase.
+
+* budget.js added that is used to handle income, current account balance, and anything else that has to do with the players money.
+* shop.js added that will contain everything that has to do with the price, and availability of items for purchase.
+* stuff.js will hold all things the player owns.
