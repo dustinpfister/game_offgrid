@@ -59,11 +59,13 @@ Here is what the save_default.json files looks like for now
 
 The player will start off with some starting food in there belly, but will need to eat soon.
 
-Budget.js
+##Budget.js
 
 So I have gone in the direction of having it so the players money is set by way of an expression, for better or worse. What I mean by this is the money is not something that is just incremented by a delta value to a certain balance. There is a paper trail of sorts, and everything is accounted for in terms of both credits and debits.
 
 As such this will call for a kind of income type system
+
+### event type
 
 Say you make $10 when you preform a certain task in the game
 
@@ -78,6 +80,8 @@ Say you make $10 when you preform a certain task in the game
 
 That is what would need to be stored, and then that info could be used when tabulating total income
     in budget.js
+
+### over_time_always type
 
 Another example is say that you have an income type that is always in effect, and just simply gives you a fixed amount of money over time.
 
@@ -97,7 +101,7 @@ this type would act in a way where the sum that is added to income would be foun
 var sum = income.amount * gameMonths * income.count
 ```
 
-### Job Type
+### job type
 
 I might also want another type. How about the idea of having the option to work a job that pays holiday pay, and you might only work there for a few hours before quiting, or getting fired. In addition say it might be possible to set things up so that the Person can work while you are away from playing the game (alway production).
 
@@ -149,6 +153,8 @@ This way a history of sorts could be established to show what has been payed, an
 ```
 
 At which point it could remain as just a simple condense amount in the save state, or could be easily reestablished if the player starts working there again. This might be the best way to handle income, in fact another type like it might even be better for basic income as well:
+
+### gov_income type
 
 ```json
 {
