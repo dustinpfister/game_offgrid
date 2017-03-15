@@ -83,11 +83,11 @@ Another example is say that you have an income type that is always in effect, an
 
 ```json
 {
-    id: 'basic_income',
-    incomeType: 'over_time_always',
-    amount : 500,
-    timeUnit : 'm',
-    count: 1
+    "id": "basic_income",
+    "incomeType": "over_time_always",
+    "amount" : 500,
+    "timeUnit" : "m",
+    "count": 1
 }
 ```
 
@@ -104,31 +104,31 @@ I might also want another type. How about the idea of having the option to work 
 ```json
 {
 
-    id : 'worked_at_store',
-    incomeType : 'job',
-    base : 240,
-    payDays : [
+    "id" : "worked_at_store",
+    "incomeType" : "job",
+    "base" : 240,
+    "payDays" : [
         {
-            forGameDay : 14,
-            payed : true,
-            hours : [
+            "forGameDay" : 14,
+            "payed" : true,
+            "hours" : [
                 {
-                    count : 16,
-                    rate : 10
+                    "count" : 16,
+                    "rate" : 10
                 }, 
                 {
-                    count : 8,
-                    rate : 15
+                    "count" : 8,
+                    "rate" : 15
                 }
             ]
         }, 
         {
-            forGameDay : 21,
-            payed : false,
-            hours : [
+            "forGameDay" : 21,
+            "payed" : false,
+            "hours" : [
                 {
-                    count : 24,
-                    rate : 10
+                    "count" : 24,
+                    "rate" : 10
                 }
             ]
         }
@@ -141,10 +141,10 @@ This way a history of sorts could be established to show what has been payed, an
 ```json
 {
 
-    id : 'worked_at_store',
-    incomeType : 'job',
-    base : 760,
-    payDays : []
+    "id" : "worked_at_store",
+    "incomeType" : "job",
+    "base" : 760,
+    "payDays" : []
 }
 ```
 
@@ -152,19 +152,19 @@ At which point it could remain as just a simple condense amount in the save stat
 
 ```json
 {
-    id : 'basic_income',
-    incomeType : 'gov_income',
-    base : 750,
-    payOuts : [
+    "id" : "basic_income",
+    "incomeType" : "gov_income",
+    "base" : 750,
+    "payOuts" : [
         {
-            forGameDay : 3,
-            payed : true,
-            amount : 750
+            "forGameDay" : 3,
+            "payed" : true,
+            "amount" : 750
         },
         {
-            forGameDay : 33,
-            payed : false,
-            amount : 800
+            "forGameDay" : 33,
+            "payed" : false,
+            "amount" : 800
         }
     ]
 }
