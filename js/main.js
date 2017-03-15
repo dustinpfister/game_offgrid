@@ -3,24 +3,21 @@
 var main = (function () {
 
     var state = {
-
-        startTime : new Date(2017, 2, 1, 0, 0),
-        //startTime : new Date(),
+        /*
+        time_start : new Date(2017, 1, 1, 0, 0),
         lastTime : {
-            days : 0, //12.952,
-            t : 0,
-            d : 0,
-            m : 0
+        days : 0, //12.952,
+        t : 0,
+        d : 0,
+        m : 0
 
         },
-        //startTime : new Date(),
         gameDayLength : 1000 * 60 * 60 * 24, // how long a game day is in ms
-        //gameDayLength : 1000 * 60 * 7,
         days : 0,
         t : 0,
         d : 1,
         m : 1
-
+         */
     },
 
     api = function () {
@@ -34,25 +31,47 @@ var main = (function () {
         var now = new Date(),
         daysPast;
 
-        state.days = (now - state.startTime) / state.gameDayLength;
-        state.t = (now - state.startTime) % state.gameDayLength / state.gameDayLength;
+        // current number of total game days
+        state.days = (now - state.time_start) / state.gameDayLength;
+
+        // current t,d,and m values
+        state.t = (now - state.time_start) % state.gameDayLength / state.gameDayLength;
         state.d = Math.floor(state.days) % 30 + 1;
         state.m = Math.floor(state.days / 30) + 1;
 
-        daysPast = state.days - state.lastTime.days;
-
+        // update the person object with current total days
         Person.updateState(state.days);
-        //Person.updateState(daysPast);
-        Budget.updateState(daysPast);
 
-        state.lastTime = {
+        state.lastTime = new Date();
 
-            days : state.days,
-            t : state.t,
-            d : state.d,
-            m : state.m
+    };
 
-        };
+    // start a new game with the given default state in json
+    api.newGame = function (defaultJSON) {
+
+        var defaultState = JSON.parse(defaultJSON),
+        now = new Date();
+
+        console.log('starting a new game...');
+        console.log(defaultJSON);
+
+        // copy in the defaults for main
+        state = JSON.parse(JSON.stringify(defaultState.Main));
+
+        // overwrrite starttime and last time as now
+        state.time_start = now;
+        state.time_last = now;
+        state.days = 0;
+
+        
+
+    };
+
+    // load a state from json
+    api.loadState = function (json) {
+
+        console.log('I am main.loadState.');
+        console.log(json);
 
     };
 
@@ -73,11 +92,16 @@ var game = (function () {
         // preload
         preload : function () {
 
+            // img and spritesheets
             game.load.image('tiles_map', 'img/tiles_16.png');
             game.load.spritesheet('items_2_1', 'img/items_2_1.png', 32, 16);
             game.load.spritesheet('items_1_2', 'img/items_1_2.png', 16, 32);
 
+            // fonts
             game.load.bitmapFont('zelda', 'fonts/font_zelda.png', 'fonts/font_zelda.xml');
+
+            // json
+            game.load.json('save_default', 'json/save_default.json');
 
         },
 
@@ -86,6 +110,9 @@ var game = (function () {
 
             game.state.add('parcel', Parcel.phaserState);
             game.state.add('person', Person.phaserState);
+
+            // start by loading a new game by default
+            main.newGame(JSON.stringify(game.cache.getJSON('save_default')));
 
             game.state.start('person');
 
