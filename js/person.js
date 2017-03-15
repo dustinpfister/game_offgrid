@@ -28,13 +28,10 @@ var Person = (function () {
             var item = Stuff.getItemById(itemCount.id),
             total;
 
-            console.log('updaing eatTotals for ' + item.desc);
-
             for (nutrientName in status.nutrient) {
 
                 if (nutrientName in item.uptakes) {
 
-                    console.log(item.id + ' has ' + nutrientName);
                     total = item.uptakes[nutrientName].amount * itemCount.count;
                     status.nutrient[nutrientName].eatTotal += total;
 
@@ -43,8 +40,6 @@ var Person = (function () {
             }
 
         });
-
-        console.log(status);
 
     },
 
@@ -55,7 +50,8 @@ var Person = (function () {
 
     };
 
-    api.load = function (personObj) {
+    // set person state with the given person object
+    api.set = function (personObj) {
 
         // if an object
         if (typeof personObj === 'object') {
@@ -73,6 +69,13 @@ var Person = (function () {
 
         // update eats totals
         updateEats();
+
+    };
+
+    // give the person current person state as json
+    api.get = function () {
+
+        return JSON.stringify(state);
 
     };
 
@@ -115,8 +118,6 @@ var Person = (function () {
         create : function () {
 
             // what to create for person state
-            console.log('I am ready to rock!');
-
             text['money'] = game.add.bitmapText(10, 10, 'zelda', '', 10);
             text['time'] = game.add.bitmapText(180, 10, 'zelda', '', 9);
             text['protein'] = game.add.bitmapText(10, 30, 'zelda', '', 10);
@@ -133,19 +134,10 @@ var Person = (function () {
 
             // update main
             main.update();
-            //updateState(main());
-
-            /*
-            if (time >= 100) {
-
-            updateState(time);
-
-            }
-             */
 
             text['money'].text = 'money: ' + Budget().bal.toFixed(2);
-            text['protein'].text = 'Protein : ' + status.nutrient.protein.grams.toFixed(2);
-            text['carbs'].text = 'Carbs : ' + status.nutrient.carbs.grams.toFixed(2);
+            text['protein'].text = 'Protein : ' + status.nutrient.protein.grams.toFixed(3);
+            text['carbs'].text = 'Carbs : ' + status.nutrient.carbs.grams.toFixed(3);
             text['time'].text = 'T : ' + main().t.toFixed(2) + ' Day : ' + main().d + ' Month: ' + main().m;
 
         }
@@ -158,7 +150,7 @@ var Person = (function () {
     ());
 
 // hard coded person status.
-Person.load(JSON.stringify({
+Person.set(JSON.stringify({
 
         weight : 140,
         nutrient : {
@@ -191,14 +183,14 @@ Person.load(JSON.stringify({
             {
 
                 id : 'f_0',
-                count : 3
+                count : 30
 
             },
 
             // apples
             {
                 id : 'f_1',
-                count : 1
+                count : 12
 
             }
 

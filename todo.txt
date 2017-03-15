@@ -2,14 +2,20 @@
 
 1.0.x - First Release
 
-* Basic crude structure of game in place
-* person.js added this contains a phaser state, as well as other relevant methods.
-* main.js contains the main phaser state, and a module that has to do with the management of time.
-* parcel.js added to help with everything relating to the land parcel.
+done for 1.x:
 
-* budget.js added that is used to handle income, current account balance, and anything else that has to do with the players money.
-* shop.js added that will contain everything that has to do with the price, and availability of items for purchase.
-* stuff.js will hold all things the player owns.
+* Added a person.js file that contains a phaser state, as well as other relevant methods.
+* Made my first bitmap font using the text from The legend of Zelda a link to the past.
+* The handling of time is designed in a way that will allow for idle style game pay. 
+* Added a stuff.js file that will handle the items database
+* Many other files and resources added that form a crude starting state of this game.
+
+todo for 1.x :
+* handle money in the same way as nutrients
+* can load game progress from a gameState.json file
+* made a items_db.json file that will contain data for all game items.
+
+
 
 ## Person().nutrient[nutrientName].eatTotal
 
