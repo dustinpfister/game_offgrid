@@ -58,3 +58,78 @@ Here is what the save_default.json files looks like for now
 ```
 
 The player will start off with some starting food in there belly, but will need to eat soon.
+
+Budget.js
+
+So I have gone in the direction of having it so the players money is set by way of an expression, for better or worse. What I mean by this is the money is not something that is just incremented by a delta value to a certain balance. There is a paper trail of sorts, and everything is accounted for in terms of both credits and debits.
+
+As such this will call for a kind of income type system
+
+Say you make $10 when you preform a certain task in the game
+
+```js
+{
+    id: 'fiver_task_5',
+    incomeType: 'event',
+    amount : 5,
+    count : 7
+}
+```
+
+That is what would need to be stored, and then that info could be used when tabulating total income
+    in budget.js
+
+Another example is say that you have an income type that is always in effect, and just simply gives you a fixed amount of money over time.
+
+```json
+{
+    id: 'basic_income',
+    incomeType: 'over_time_always',
+    amount : 500,
+    timeUnit : 'm',
+    count: 1
+}
+```
+
+this type would act in a way where the sum that is added to income would be found with an expression like this.
+
+```js
+var sum = income.amount * gameMonths * income.count
+```
+
+### Job Type
+
+I might also want another type. How about the idea of having the option to work a job that pays holiday pay, and you might only work there for a few hours before quiting, or getting fired. In addition say it might be possible to set things up so that the Person can work while you are away from playing the game (alway production).
+
+```json
+{
+
+    id : 'worked_at_store',
+    incomeType : 'job',
+    base : 240,
+    payDays : [
+        {
+            forGameDay : 14,
+            hours : [
+                {
+                    count : 16,
+                    rate : 10
+                }, 
+                {
+                    count : 8,
+                    rate : 15
+                }
+            ]
+        }, 
+        {
+            forGameDay : 21,
+            hours : [
+                {
+                    count : 24,
+                    rate : 10
+                }
+            ]
+        }
+    ]
+}
+```

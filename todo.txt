@@ -11,9 +11,12 @@ done for 1.x:
 * Many other files and resources added that form a crude starting state of this game.
 * defaults for main loaded from save_default.json
 * defaults for Person loaded from save_default.json
+* money is set by way of an expression.
 
 todo for 1.x :
-* money is set by way of an expression.
+* looks like budget.js will need 'income types'
+
+
 * can load game progress from a gamesave.json file
 * made a items_db.json file that will contain data for all game items.
 
