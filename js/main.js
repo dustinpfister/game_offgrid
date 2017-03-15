@@ -63,7 +63,8 @@ var main = (function () {
         state.time_last = now;
         state.days = 0;
 
-        
+        // copy in the defaults for person
+        Person.set(JSON.stringify(defaultState.Person));
 
     };
 

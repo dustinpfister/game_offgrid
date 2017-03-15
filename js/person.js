@@ -148,7 +148,7 @@ var Person = (function () {
 
 }
     ());
-
+/*
 // hard coded person status.
 Person.set(JSON.stringify({
 
@@ -197,3 +197,4 @@ Person.set(JSON.stringify({
         ]
 
     }));
+*/
