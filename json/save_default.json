@@ -2,7 +2,7 @@
     "Main" : {
         "time_start" : "2017-03-01T05:00:00.000Z",
         "time_last" : "2017-03-01T05:00:00.000Z",
-        "gameDayLength" : 86400000
+        "gameDayLength" : 1000
     },
     "Person" : {
         "weight" : 140,
@@ -10,14 +10,14 @@
         "maxHP" : 1000,
         "nutrient" : {
             "protein" : {
-                "grams" : 100,
+                "grams" : 20,
                 "eatTotal" : 0,
-                "startGrams" : 10,
+                "startGrams" : 20,
                 "maxGrams" : 120,
-                "lossRate" : 60
+                "lossRate" : 65
             },
             "carbs" : {
-                "grams" : 40,
+                "grams" : 150,
                 "eatTotal" : 0,
                 "startGrams" : 150,
                 "maxGrams" : 600,

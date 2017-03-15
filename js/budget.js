@@ -5,12 +5,16 @@ var Budget = (function () {
     // what is current with the money
     var current = {
 
-        bal : 5000, // the current balance for the player
-        lastUpdate : new Date(),
+        bal : 0, // the current balance for the player
+
+        income : 0,
+        start : 5000,
+
         incomes : [{
-                desc : 'basic', // description of the income
-                amount : 750, // the amount you get on a payday
-                payDays : [3]// paydays
+                desc : 'click-n-save', // description of the income
+                dayAmount : 10, // the amount you get on a payday
+                base : 0,
+                payDays : 3
             }
 
         ],
@@ -24,6 +28,21 @@ var Budget = (function () {
 
         ]
 
+    },
+
+    // tabulate income
+    tabIncome = function (days) {
+
+        var totals = 0;
+
+        current.incomes.forEach(function (income) {
+
+            totals += income.base + income.dayAmount * ((days / 30) * income.payDays);
+
+        });
+
+        current.income = current.start + totals;
+
     };
 
     var api = function () {
@@ -34,13 +53,19 @@ var Budget = (function () {
 
     api.updateState = function (days) {
 
+        tabIncome(days);
+
+        current.bal = current.income;
+
+        /*
         current.bal -= current.drain[0].amount / 30 * days;
 
         if (current.bal < 0) {
 
-            current.bal = 0;
+        current.bal = 0;
 
         }
+         */
 
     };
 

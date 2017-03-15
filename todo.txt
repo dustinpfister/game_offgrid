@@ -9,10 +9,12 @@ done for 1.x:
 * The handling of time is designed in a way that will allow for idle style game pay. 
 * Added a stuff.js file that will handle the items database
 * Many other files and resources added that form a crude starting state of this game.
+* defaults for main loaded from save_default.json
+* defaults for Person loaded from save_default.json
 
 todo for 1.x :
-* handle money in the same way as nutrients
-* can load game progress from a gameState.json file
+* money is set by way of an expression.
+* can load game progress from a gamesave.json file
 * made a items_db.json file that will contain data for all game items.
 
 

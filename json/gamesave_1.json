@@ -1,7 +1,7 @@
 {
 
     "time_start" : "2017-03-01T05:00:00.000Z",
-    "tile_last" : "2017-03-01T05:00:00.000Z"
+    "time_last" : "2017-03-01T05:00:00.000Z"
     "gameDayLength" : 86400000,
     "Person" : {
         "weight" : 140,
