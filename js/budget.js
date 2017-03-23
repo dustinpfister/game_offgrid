@@ -11,14 +11,7 @@ var Budget = (function () {
         payments : 0, // grand total payments
         start : 5000,
 
-        incomes : [{
-                desc : 'click-n-save', // description of the income
-                dayAmount : 10, // the amount you get on a payday
-                base : 0,
-                payDays : 3
-            }
-
-        ],
+        incomes : [],
         drain : [// what is draining money
 
 
@@ -34,26 +27,12 @@ var Budget = (function () {
     // tabulate income
     tabIncome = function () {
 
-        /*
-        var totals = 0;
-
-        current.incomes.forEach(function (income) {
-
-        totals += income.base + income.dayAmount * ((days / 30) * income.payDays);
-
-        });
-
-        current.income = current.start + totals;
-
-         */
-
         current.income = 0;
-        //console.log('looking at incomes');
+
+        // loop over all income objects
         current.incomes.forEach(function (income) {
 
-            //console.log(income);
-
-            //console.log(income.id + ' is an ' + income.incomeType + ' type income');
+            // add to income based on income type
             switch (income.incomeType) {
 
             case 'over_time_always':
@@ -147,6 +126,11 @@ var Budget = (function () {
 
         //console.log(current.incomes);
 
+        // these all default to zero
+        current.bal = 0;
+        current.income = 0;
+        current.payments = 0;
+
         tabIncome();
 
     };
@@ -164,6 +148,9 @@ var Budget = (function () {
                 text['money'] = game.add.bitmapText(10, 10, 'zelda', '', 10);
                 text['time'] = game.add.bitmapText(180, 10, 'zelda', '', 9);
 
+                text['income'] = game.add.bitmapText(10, 50, 'zelda', '', 10);
+                text['payments'] = game.add.bitmapText(10, 65, 'zelda', '', 10);
+
             },
 
             // update for person state
@@ -178,6 +165,9 @@ var Budget = (function () {
 
                 text['money'].text = 'money: ' + Budget().bal.toFixed(2);
                 text['time'].text = 'T : ' + main().t.toFixed(2) + ' Day : ' + main().d + ' Month: ' + main().m;
+
+                text['income'].text = 'all time credits: ' + Budget().income.toFixed(2);
+                text['payments'].text = 'all time debits: ' + Budget().payments.toFixed(2);
             }
 
         };

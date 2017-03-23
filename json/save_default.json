@@ -29,6 +29,37 @@
     "Budget" : {
         "start" : 5000,
         "incomes" : [{
+                "id" : "basic_income",
+                "incomeType" : "job",
+                "base" : 0,
+                "payDays" : [{
+                        "forGameDay" : 3,
+                        "payed" : false,
+                        "hours" : [{
+                                "count" : 1,
+                                "rate" : 750
+                            }
+                        ]
+                    }, {
+                        "forGameDay" : 33,
+                        "payed" : false,
+                        "hours" : [{
+                                "count" : 1,
+                                "rate" : 750
+                            }
+                        ]
+                    }, {
+                        "forGameDay" : 63,
+                        "payed" : false,
+                        "hours" : [{
+                                "count" : 1,
+                                "rate" : 750
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
                 "id" : "worked_at_store",
                 "incomeType" : "job",
                 "base" : 240,

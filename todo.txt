@@ -1,23 +1,25 @@
 
 
-1.0.x - First Release
+1.1.x - Payments
 
-done for 1.x:
+* displaying income, and payment amounts in the budget state.
 
-* Added a person.js file that contains a phaser state, as well as other relevant methods.
-* Made my first bitmap font using the text from The legend of Zelda a link to the past.
-* The handling of time is designed in a way that will allow for idle style game pay. 
-* Added a stuff.js file that will handle the items database
-* Many other files and resources added that form a crude starting state of this game.
-* defaults for main loaded from save_default.json
-* defaults for Person loaded from save_default.json
-* money is set by way of an expression.
 
-todo for 1.x :
-* looks like budget.js will need 'income types'
-* can load game progress from a gamesave.json file
-* made a items_db.json file that will contain data for all game items.
+todo for 1.1.x :
 * basic interface that can be used to switch between states
+* merge down task for 'job' income type.
+
+
+other todo:
+
+* make an items_db.json file that will contain data for all game items.
+* start using grunt to automate version number bumping, ect.
+
+
+
+
+notes:
+
 
 
 ## Person().nutrient[nutrientName].eatTotal
