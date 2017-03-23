@@ -28,9 +28,9 @@ Here is what the save_default.json files looks like for now
 ```json
 {
     "Main" : {
-        "time_start" : "2017-03-01T05:00:00.000Z",
-        "time_last" : "2017-03-01T05:00:00.000Z",
-        "gameDayLength" : 600000
+        "time_start" : "2017-03-11T05:00:00.000Z",
+        "time_last" : "2017-03-11T05:00:00.000Z",
+        "gameDayLength" : 1000
     },
     "Person" : {
         "weight" : 140,
@@ -53,6 +53,67 @@ Here is what the save_default.json files looks like for now
             }
         },
         "consumed" : []
+    },
+    "Budget" : {
+        "start" : 5000,
+        "incomes" : [{
+                "id" : "basic_income",
+                "incomeType" : "job",
+                "base" : 0,
+                "payDays" : [{
+                        "forGameDay" : 3,
+                        "payed" : false,
+                        "hours" : [{
+                                "count" : 1,
+                                "rate" : 750
+                            }
+                        ]
+                    }, {
+                        "forGameDay" : 33,
+                        "payed" : false,
+                        "hours" : [{
+                                "count" : 1,
+                                "rate" : 750
+                            }
+                        ]
+                    }, {
+                        "forGameDay" : 63,
+                        "payed" : false,
+                        "hours" : [{
+                                "count" : 1,
+                                "rate" : 750
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id" : "worked_at_store",
+                "incomeType" : "job",
+                "base" : 240,
+                "payDays" : [{
+                        "forGameDay" : 7,
+                        "payed" : false,
+                        "hours" : [{
+                                "count" : 16,
+                                "rate" : 10
+                            }, {
+                                "count" : 8,
+                                "rate" : 15
+                            }
+                        ]
+                    }, {
+                        "forGameDay" : 14,
+                        "payed" : false,
+                        "hours" : [{
+                                "count" : 24,
+                                "rate" : 10
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
     }
 }
 ```
