@@ -2,7 +2,7 @@
     "Main" : {
         "time_start" : "2017-03-11T05:00:00.000Z",
         "time_last" : "2017-03-11T05:00:00.000Z",
-        "gameDayLength" : 100
+        "gameDayLength" : 1000
     },
     "Person" : {
         "weight" : 140,
@@ -29,11 +29,30 @@
     "Budget" : {
         "start" : 5000,
         "incomes" : [{
-                "id" : "basic_income",
-                "incomeType" : "over_time_always",
-                "amount" : 500,
-                "timeUnit" : "m",
-                "count" : 1
+                "id" : "worked_at_store",
+                "incomeType" : "job",
+                "base" : 240,
+                "payDays" : [{
+                        "forGameDay" : 7,
+                        "payed" : false,
+                        "hours" : [{
+                                "count" : 16,
+                                "rate" : 10
+                            }, {
+                                "count" : 8,
+                                "rate" : 15
+                            }
+                        ]
+                    }, {
+                        "forGameDay" : 14,
+                        "payed" : false,
+                        "hours" : [{
+                                "count" : 24,
+                                "rate" : 10
+                            }
+                        ]
+                    }
+                ]
             }
         ]
     }

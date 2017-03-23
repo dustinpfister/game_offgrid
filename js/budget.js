@@ -68,6 +68,44 @@ var Budget = (function () {
 
                 break;
 
+            case 'job':
+
+                // add in base
+                current.income += income.base;
+
+                // loop over payDays array
+                income.payDays.forEach(function (payDay) {
+
+                    var gt = main(),
+                    amount,
+                    gameDay = gt.m * 30 + gt.d;
+
+                    // I may not need the payDay bool, but for now thats how I have it
+                    if (gameDay >= payDay.forGameDay) {
+
+                        payDay.payed = true;
+
+                    }
+
+                    if (payDay.payed) {
+
+                        amount = 0;
+
+                        payDay.hours.forEach(function (hours) {
+
+                            amount += hours.count * hours.rate;
+
+                        });
+
+                        // add in hours data for the job
+                        current.income += amount;
+
+                    }
+
+                });
+
+                break;
+
             }
 
         });
