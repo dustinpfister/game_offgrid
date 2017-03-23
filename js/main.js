@@ -28,7 +28,7 @@ var main = (function () {
         Person.updateState(state.days);
 
         // update budget
-        Budget.updateState(state.days,daysPast);
+        Budget.updateState(state.days, daysPast);
 
         state.lastTime = new Date();
 
@@ -41,7 +41,7 @@ var main = (function () {
         now = new Date();
 
         console.log('starting a new game...');
-        console.log(defaultJSON);
+        //console.log(defaultJSON);
 
         // copy in the defaults for main
         state = JSON.parse(JSON.stringify(defaultState.Main));
@@ -50,6 +50,11 @@ var main = (function () {
         state.time_start = now;
         state.time_last = now;
         state.days = 0;
+
+        this.update();
+
+        // copy in the defaults for Budget
+        Budget.set(JSON.stringify(defaultState.Budget));
 
         // copy in the defaults for person
         Person.set(JSON.stringify(defaultState.Person));
@@ -60,7 +65,7 @@ var main = (function () {
     api.loadState = function (json) {
 
         console.log('I am main.loadState.');
-        console.log(json);
+        //console.log(json);
 
     };
 

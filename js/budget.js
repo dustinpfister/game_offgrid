@@ -7,7 +7,8 @@ var Budget = (function () {
 
         bal : 0, // the current balance for the player
 
-        income : 0,
+        income : 0, // grand total income
+        payments : 0, // grand total payments
         start : 5000,
 
         incomes : [{
@@ -33,15 +34,18 @@ var Budget = (function () {
     // tabulate income
     tabIncome = function (days) {
 
+        /*
         var totals = 0;
 
         current.incomes.forEach(function (income) {
 
-            totals += income.base + income.dayAmount * ((days / 30) * income.payDays);
+        totals += income.base + income.dayAmount * ((days / 30) * income.payDays);
 
         });
 
         current.income = current.start + totals;
+
+         */
 
     };
 
@@ -55,17 +59,30 @@ var Budget = (function () {
 
         tabIncome(days);
 
-        current.bal = current.income;
+        // just subtract grand payments form grand total income
+        current.bal = current.start; //current.income - current.payments;
 
-        /*
-        current.bal -= current.drain[0].amount / 30 * days;
+    };
 
-        if (current.bal < 0) {
+    // set Budget with the given budget object
+    api.set = function (budgetObj) {
 
-        current.bal = 0;
+        // if an object
+        if (typeof personObj === 'object') {
+
+            // copy in the object
+            current = JSON.parse(JSON.stringify(budgetObj));
+
+        } else {
+
+            // else assume a string is given, and it is JSON
+
+            current = JSON.parse(budgetObj);
 
         }
-         */
+
+        console.log('game months: ' + main().m);
+        console.log(current.incomes);
 
     };
 
@@ -80,6 +97,7 @@ var Budget = (function () {
 
                 // what to create for person state
                 text['money'] = game.add.bitmapText(10, 10, 'zelda', '', 10);
+                text['time'] = game.add.bitmapText(180, 10, 'zelda', '', 9);
 
             },
 
@@ -94,7 +112,7 @@ var Budget = (function () {
                 main.update();
 
                 text['money'].text = 'money: ' + Budget().bal.toFixed(2);
-
+                text['time'].text = 'T : ' + main().t.toFixed(2) + ' Day : ' + main().d + ' Month: ' + main().m;
             }
 
         };
@@ -102,7 +120,7 @@ var Budget = (function () {
     }
         ());
 
-        return api;
+    return api;
 
 }
     ());

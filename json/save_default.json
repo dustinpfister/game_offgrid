@@ -25,5 +25,16 @@
             }
         },
         "consumed" : []
+    },
+    "Budget" : {
+        "start" : 5000,
+        "incomes" : [{
+                "id" : "basic_income",
+                "incomeType" : "over_time_always",
+                "amount" : 500,
+                "timeUnit" : "m",
+                "count" : 1
+            }
+        ]
     }
 }
