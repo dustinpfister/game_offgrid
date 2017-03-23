@@ -1,7 +1,7 @@
 {
     "Main" : {
-        "time_start" : "2017-03-01T05:00:00.000Z",
-        "time_last" : "2017-03-01T05:00:00.000Z",
+        "time_start" : "2017-03-11T05:00:00.000Z",
+        "time_last" : "2017-03-11T05:00:00.000Z",
         "gameDayLength" : 1000
     },
     "Person" : {

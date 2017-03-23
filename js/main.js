@@ -35,37 +35,55 @@ var main = (function () {
     };
 
     // start a new game with the given default state in json
-    api.newGame = function (defaultJSON) {
-
-        var defaultState = JSON.parse(defaultJSON),
-        now = new Date();
+    api.newGame = function (json) {
 
         console.log('starting a new game...');
-        //console.log(defaultJSON);
+
+        this.loadState(json,true);
+
+    };
+
+    // load a state from json
+    api.loadState = function (json, newGame) {
+
+        var defaultState = JSON.parse(json),
+        now = new Date();
+
+        console.log('I am main.loadState.');
+
+        newGame = !newGame ? false : true;
 
         // copy in the defaults for main
         state = JSON.parse(JSON.stringify(defaultState.Main));
 
-        // overwrrite starttime and last time as now
-        state.time_start = now;
-        state.time_last = now;
-        state.days = 0;
+        if (newGame) {
 
+            console.log('new game: starting a new game with current client time');
+
+            // overwrite start time and last time as now
+            state.time_start = now;
+            state.time_last = now;
+
+        } else {
+
+            console.log('game save: using dates in json');
+
+            // use start time, and last time from json
+            state.time_start = new Date(state.time_start);
+            state.time_last = new Date(state.time_last);
+
+        }
+
+        // update time here at main
         this.update();
+
+        // update modules with the loaded time
 
         // copy in the defaults for Budget
         Budget.set(JSON.stringify(defaultState.Budget));
 
         // copy in the defaults for person
         Person.set(JSON.stringify(defaultState.Person));
-
-    };
-
-    // load a state from json
-    api.loadState = function (json) {
-
-        console.log('I am main.loadState.');
-        //console.log(json);
 
     };
 
