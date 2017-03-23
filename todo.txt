@@ -15,11 +15,9 @@ done for 1.x:
 
 todo for 1.x :
 * looks like budget.js will need 'income types'
-
-
 * can load game progress from a gamesave.json file
 * made a items_db.json file that will contain data for all game items.
-
+* basic interface that can be used to switch between states
 
 
 ## Person().nutrient[nutrientName].eatTotal

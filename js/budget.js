@@ -32,7 +32,7 @@ var Budget = (function () {
     },
 
     // tabulate income
-    tabIncome = function (days) {
+    tabIncome = function () {
 
         /*
         var totals = 0;
@@ -47,6 +47,31 @@ var Budget = (function () {
 
          */
 
+        current.income = 0;
+        //console.log('looking at incomes');
+        current.incomes.forEach(function (income) {
+
+            //console.log(income);
+
+            //console.log(income.id + ' is an ' + income.incomeType + ' type income');
+            // which income type is it?
+            switch (income.incomeType) {
+
+            case 'over_time_always':
+
+                // a simple type that just adds an amount * count * gameMonths
+                // plus amount * count / 30 *
+
+                current.income += income.amount * main().m * income.count;
+
+                console.log(current.income);
+
+                break;
+
+            }
+
+        });
+
     };
 
     var api = function () {
@@ -55,12 +80,13 @@ var Budget = (function () {
 
     };
 
-    api.updateState = function (days) {
+    api.updateState = function () {
 
-        tabIncome(days);
+        tabIncome();
 
         // just subtract grand payments form grand total income
-        current.bal = current.start; //current.income - current.payments;
+        //console.log(current.income);
+        current.bal = current.start + current.income; //current.income - current.payments;
 
     };
 
@@ -81,8 +107,9 @@ var Budget = (function () {
 
         }
 
-        console.log('game months: ' + main().m);
-        console.log(current.incomes);
+        //console.log(current.incomes);
+
+        tabIncome();
 
     };
 

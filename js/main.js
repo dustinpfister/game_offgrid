@@ -22,13 +22,13 @@ var main = (function () {
         // current t,d,and m values
         state.t = (now - state.time_start) % state.gameDayLength / state.gameDayLength;
         state.d = Math.floor(state.days) % 30 + 1;
-        state.m = Math.floor(state.days / 30) + 1;
+        state.m = Math.floor(state.days / 30);
 
         // update the person object with current total days
         Person.updateState(state.days);
 
         // update budget
-        Budget.updateState(state.days, daysPast);
+        Budget.updateState();
 
         state.lastTime = new Date();
 
