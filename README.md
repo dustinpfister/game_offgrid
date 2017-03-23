@@ -59,7 +59,7 @@ Here is what the save_default.json files looks like for now
 
 The player will start off with some starting food in there belly, but will need to eat soon.
 
-##Budget.js
+## Budget.js
 
 So I have gone in the direction of having it so the players money is set by way of an expression, for better or worse. What I mean by this is the money is not something that is just incremented by a delta value to a certain balance. There is a paper trail of sorts, and everything is accounted for in terms of both credits and debits.
 
@@ -140,7 +140,7 @@ I might also want another type. How about the idea of having the option to work 
 }
 ```
 
-This way a history of sorts could be established to show what has been payed, and what is yet to be payed. When a certain game day comes around a simple 'payed' flag could be set to true to indicate that the amounts are to be tabulated and added to a sum, that will influence the players balance. When the history gets a bit long, the payed history could be added up into a sum that is then added to base. At which point the payed history could be cleared out. If the player for whatever reason stops working at the store, it could simply just remain as a base value, and look like this:
+This way a history of sorts could be established to show what has been payed, and what is yet to be payed. When a certain game day comes around a simple 'payed' flag could be set to true to indicate that the amounts are to be tabulated and added to a sum, that will influence the players balance. When the history gets a bit long, the payed history could be added up into a sum that is then added to the base. At which point the payed history could be cleared out. If the player for whatever reason stops working at the store, it could simply just remain as a base value, and look like this:
 
 ```json
 {

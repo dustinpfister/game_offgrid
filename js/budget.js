@@ -69,7 +69,40 @@ var Budget = (function () {
 
     };
 
-    return api;
+    api.phaserState = (function () {
+
+        // store text objects
+        var text = [];
+
+        return {
+
+            create : function () {
+
+                // what to create for person state
+                text['money'] = game.add.bitmapText(10, 10, 'zelda', '', 10);
+
+            },
+
+            // update for person state
+            update : function () {
+
+                // what to update on each tick for the person state
+                var now = new Date(),
+                time = now - status.lastUpdate;
+
+                // update main
+                main.update();
+
+                text['money'].text = 'money: ' + Budget().bal.toFixed(2);
+
+            }
+
+        };
+
+    }
+        ());
+
+        return api;
 
 }
     ());

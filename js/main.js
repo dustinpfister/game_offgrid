@@ -2,23 +2,7 @@
 // responsible for time, and game state
 var main = (function () {
 
-    var state = {
-        /*
-        time_start : new Date(2017, 1, 1, 0, 0),
-        lastTime : {
-        days : 0, //12.952,
-        t : 0,
-        d : 0,
-        m : 0
-
-        },
-        gameDayLength : 1000 * 60 * 60 * 24, // how long a game day is in ms
-        days : 0,
-        t : 0,
-        d : 1,
-        m : 1
-         */
-    },
+    var state = {},
 
     api = function () {
 
@@ -115,11 +99,12 @@ var game = (function () {
 
             game.state.add('parcel', Parcel.phaserState);
             game.state.add('person', Person.phaserState);
+            game.state.add('budget', Budget.phaserState);
 
             // start by loading a new game by default
             main.newGame(JSON.stringify(game.cache.getJSON('save_default')));
 
-            game.state.start('person');
+            game.state.start('budget');
 
         },
 
