@@ -2,7 +2,7 @@
     "Main" : {
         "time_start" : "2017-03-11T05:00:00.000Z",
         "time_last" : "2017-03-11T05:00:00.000Z",
-        "gameDayLength" : 1000
+        "gameDayLength" : 100
     },
     "Person" : {
         "weight" : 140,

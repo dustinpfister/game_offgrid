@@ -54,17 +54,17 @@ var Budget = (function () {
             //console.log(income);
 
             //console.log(income.id + ' is an ' + income.incomeType + ' type income');
-            // which income type is it?
             switch (income.incomeType) {
 
             case 'over_time_always':
 
-                // a simple type that just adds an amount * count * gameMonths
-                // plus amount * count / 30 *
+                // a simple type that just adds an amount based on past total game time.
 
+                // months
                 current.income += income.amount * main().m * income.count;
 
-                console.log(current.income);
+                // day
+                current.income += income.amount * income.count / 30 * main().d;
 
                 break;
 
