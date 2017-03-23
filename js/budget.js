@@ -40,10 +40,10 @@ var Budget = (function () {
                 // a simple type that just adds an amount based on past total game time.
 
                 // months
-                current.income += income.amount * main().m * income.count;
+                current.income += income.amount * Main().m * income.count;
 
                 // day
-                current.income += income.amount * income.count / 30 * main().d;
+                current.income += income.amount * income.count / 30 * Main().d;
 
                 break;
 
@@ -55,7 +55,7 @@ var Budget = (function () {
                 // loop over payDays array
                 income.payDays.forEach(function (payDay) {
 
-                    var gt = main(),
+                    var gt = Main(),
                     amount,
                     gameDay = gt.m * 30 + gt.d;
 
@@ -160,11 +160,11 @@ var Budget = (function () {
                 var now = new Date(),
                 time = now - status.lastUpdate;
 
-                // update main
-                main.update();
+                // update Main
+                Main.update();
 
                 text['money'].text = 'money: ' + Budget().bal.toFixed(2);
-                text['time'].text = 'T : ' + main().t.toFixed(2) + ' Day : ' + main().d + ' Month: ' + main().m;
+                text['time'].text = 'T : ' + Main().t.toFixed(2) + ' Day : ' + Main().d + ' Month: ' + Main().m;
 
                 text['income'].text = 'all time credits: ' + Budget().income.toFixed(2);
                 text['payments'].text = 'all time debits: ' + Budget().payments.toFixed(2);

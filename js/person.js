@@ -112,7 +112,7 @@ var Person = (function () {
 
     };
 
-    // the Phaser state object that is to be added in main
+    // the Phaser state object that is to be added in Main
     api.phaserState = {
 
         create : function () {
@@ -132,13 +132,13 @@ var Person = (function () {
             var now = new Date(),
             time = now - status.lastUpdate;
 
-            // update main
-            main.update();
+            // update Main
+            Main.update();
 
             text['money'].text = 'money: ' + Budget().bal.toFixed(2);
             text['protein'].text = 'Protein : ' + status.nutrient.protein.grams.toFixed(3);
             text['carbs'].text = 'Carbs : ' + status.nutrient.carbs.grams.toFixed(3);
-            text['time'].text = 'T : ' + main().t.toFixed(2) + ' Day : ' + main().d + ' Month: ' + main().m;
+            text['time'].text = 'T : ' + Main().t.toFixed(2) + ' Day : ' + Main().d + ' Month: ' + Main().m;
 
         }
 

@@ -1,6 +1,6 @@
 
 // responsible for time, and game state
-var main = (function () {
+var Main = (function () {
 
     var state = {},
 
@@ -30,7 +30,47 @@ var main = (function () {
         // update budget
         Budget.updateState();
 
-        state.lastTime = new Date();
+        state.time_last = new Date();
+
+    };
+
+    // build and return a JSON save state for current game progress
+    api.buildState = function () {
+
+        var modules = [{
+                what : 'Main',
+                props : ['time_last',
+                    'time_start',
+                    'gameDayLength']
+
+            }, {
+                what : 'Budget',
+                props : ['start', 'incomes']
+
+            }, {
+                what : 'Person',
+                props : ['nutrient', 'consumed', 'weight', 'HP', 'maxHP']
+
+            }
+
+        ],
+        saveObj = {};
+
+        modules.forEach(function (module) {
+
+            var currentObj = window[module.what]();
+
+            saveObj[module.what] = {};
+
+            module.props.forEach(function (prop) {
+
+                saveObj[module.what][prop] = currentObj[prop];
+
+            });
+
+        });
+
+        return JSON.stringify(saveObj);
 
     };
 
@@ -39,7 +79,7 @@ var main = (function () {
 
         console.log('starting a new game...');
 
-        this.loadState(json,true);
+        this.loadState(json, true);
 
     };
 
@@ -125,7 +165,7 @@ var game = (function () {
             game.state.add('budget', Budget.phaserState);
 
             // start by loading a new game by default
-            main.newGame(JSON.stringify(game.cache.getJSON('save_default')));
+            Main.newGame(JSON.stringify(game.cache.getJSON('save_default')));
 
             game.state.start('budget');
 

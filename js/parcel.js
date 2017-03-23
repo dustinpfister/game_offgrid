@@ -1,5 +1,4 @@
 
-// the main Phaser game instance
 var Parcel = (function () {
 
     var land_width = 11,

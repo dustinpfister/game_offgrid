@@ -17,7 +17,14 @@
 
         display : none;
         width : 315px;
-        in-height:150px;
+        min-height:150px;
+
+    }
+
+    #jsondump{
+
+        width : 315px;
+        min-height:150px;
 
     }
 
@@ -30,6 +37,20 @@
 
     <div id="gamearea" style="position:relative;"></div>
     <textarea id = "errorlog"></textarea>
+	<textarea id = "jsondump"></textarea><br>
+	<input id="button_jsondump" type="button" value="dump json">
+	<script>
+	
+	document.getElementById('button_jsondump').addEventListener('click',function(){
+	
+	    //console.log(JSON.stringify(main()));
+	
+	    document.getElementById('jsondump').value = Main.buildState();
+	
+	
+	});
+	
+	</script>
 
     <!-- PHASER -->
     <!-- phaser.js from bower folder: -->

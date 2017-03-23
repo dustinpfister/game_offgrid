@@ -6,12 +6,13 @@
 
 
 todo for 1.1.x :
-* basic interface that can be used to switch between states
+
 * merge down task for 'job' income type.
+* basic tool that will dump current JSON of game save to a textarea element
 
 
 other todo:
-
+* basic interface that can be used to switch between states
 * make an items_db.json file that will contain data for all game items.
 * start using grunt to automate version number bumping, ect.
 
