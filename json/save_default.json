@@ -29,6 +29,11 @@
     "Budget" : {
         "start" : 5000,
         "incomes" : [{
+                "id" : "fiver",
+                "incomeType" : "on_event",
+                "amount" : 1000,
+                "count" : 5
+            }, {
                 "id" : "basic_income",
                 "incomeType" : "job",
                 "base" : 0,
@@ -58,8 +63,7 @@
                         ]
                     }
                 ]
-            },
-            {
+            }, {
                 "id" : "worked_at_store",
                 "incomeType" : "job",
                 "base" : 240,

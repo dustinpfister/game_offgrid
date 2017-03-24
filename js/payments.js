@@ -7,12 +7,25 @@ var Payments = (function () {
 
     var Types = {
 
-        'job' : Job
+        'job' : Job,
+        'on_event' : On_event
 
     };
 
-    // the 'job' payment type
-    //var Job = function (obj) {
+    function On_event(obj) {
+
+        this.id = obj.id;
+        this.incomeType = 'on_event';
+        this.count = obj.count;
+        this.amount = obj.amount;
+
+    };
+
+    On_event.prototype.tabulate = function () {
+
+        return this.count * this.amount;
+
+    };
 
     function Job(obj) {
 
@@ -127,7 +140,10 @@ var Payments = (function () {
 
             var outArray = [];
 
-            typeArray.forEach(function (typeObj) {
+            console.log('length: ' + typeArray.length)
+            console.log(typeArray);
+
+            typeArray.forEach(function (typeObj, index) {
 
                 outArray.push(new Types[typeObj.incomeType](typeObj));
 
@@ -145,6 +161,7 @@ var Payments = (function () {
 
             collection.forEach(function (payment) {
 
+                // call each payment types tabulate method
                 total += payment.tabulate(gameDay);
 
             });
@@ -157,56 +174,3 @@ var Payments = (function () {
 
 }
     ());
-
-/*
-var jobPayment = Payments.createType('job', {
-"id" : "basic_income",
-"base" : 750,
-"payDays" : [{
-"forGameDay" : 3,
-"payed" : true,
-"hours" : [{
-"count" : 1,
-"rate" : 250
-}
-]
-}, {
-"forGameDay" : 33,
-"payed" : false,
-"hours" : [{
-"count" : 1,
-"rate" : 350
-}
-]
-},{
-"forGameDay" : 63,
-"payed" : false,
-"hours" : [{
-"count" : 1,
-"rate" : 450
-}
-]
-}
-]
-});
-
-console.log(jobPayment);
-
-// tabulate for day 40
-jobPayment.tabulate(40);
-
-// merge to base
-jobPayment.mergeToBase();
-
-// push a new payday
-jobPayment.pushPayDay(93,[{count : 1,rate : 500}]);
-
-console.log(jobPayment.tabulate(93));
-//jobPayment.mergeToBase();
-console.log(jobPayment);
-
-//console.log(jobPayment.tabulate(0));
-//console.log(jobPayment.tabulate(7));
-//console.log(jobPayment.tabulate(90));
-
-*/

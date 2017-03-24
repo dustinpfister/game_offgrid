@@ -126,14 +126,14 @@ So I have gone in the direction of having it so the players money is set by way 
 
 As such this will call for a kind of income type system
 
-### event type
+### on_event type
 
 Say you make $10 when you preform a certain task in the game
 
 ```js
 {
     id: 'fiver_task_5',
-    incomeType: 'event',
+    incomeType: 'on_event',
     amount : 5,
     count : 7
 }
@@ -215,26 +215,3 @@ This way a history of sorts could be established to show what has been payed, an
 
 At which point it could remain as just a simple condense amount in the save state, or could be easily reestablished if the player starts working there again. This might be the best way to handle income, in fact another type like it might even be better for basic income as well:
 
-### gov_income type
-
-```json
-{
-    "id" : "basic_income",
-    "incomeType" : "gov_income",
-    "base" : 750,
-    "payOuts" : [
-        {
-            "forGameDay" : 3,
-            "payed" : true,
-            "amount" : 750
-        },
-        {
-            "forGameDay" : 33,
-            "payed" : false,
-            "amount" : 800
-        }
-    ]
-}
-```
-
-This allows for factors to influence basic income amounts, and have it so it pays out on certain game days.
