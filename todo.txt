@@ -1,14 +1,15 @@
 
 
-1.1.x - Payments
+1.1.x - Payments.js
 
 * displaying income, and payment amounts in the budget state.
 * basic tool that will dump current JSON of game save to a textarea element
 * added Main.buildState() that will return a JSON save state from the current state of all modules.
-
+* merge down task for 'job' income type.
+* added a new payments.js module to help with "payment types" that are used for both income and payments
 todo for 1.1.x :
 
-* merge down task for 'job' income type.
+
 * start a payments system similar to your income types
 
 

@@ -31,8 +31,8 @@
         "incomes" : [{
                 "id" : "fiver",
                 "incomeType" : "on_event",
-                "amount" : 1000,
-                "count" : 5
+                "amount" : 5,
+                "count" : 20
             }, {
                 "id" : "basic_income",
                 "incomeType" : "job",
@@ -63,27 +63,40 @@
                         ]
                     }
                 ]
-            }, {
-                "id" : "worked_at_store",
+            }
+        ],
+        "debits" : [{
+                "id" : "car_payment",
                 "incomeType" : "job",
-                "base" : 240,
+                "base" : 0,
                 "payDays" : [{
-                        "forGameDay" : 7,
+                        "forGameDay" : 15,
                         "payed" : false,
                         "hours" : [{
-                                "count" : 16,
-                                "rate" : 10
-                            }, {
-                                "count" : 8,
-                                "rate" : 15
+                                "count" : 1,
+                                "rate" : 200
+                            }
+                        ]
+                    }
+                ]
+            }, {
+                "id" : "cell_phone",
+                "incomeType" : "job",
+                "base" : 0,
+                "payDays" : [{
+                        "forGameDay" : 5,
+                        "payed" : false,
+                        "hours" : [{
+                                "count" : 1,
+                                "rate" : 60
                             }
                         ]
                     }, {
-                        "forGameDay" : 14,
+                        "forGameDay" : 35,
                         "payed" : false,
                         "hours" : [{
-                                "count" : 24,
-                                "rate" : 10
+                                "count" : 1,
+                                "rate" : 50
                             }
                         ]
                     }

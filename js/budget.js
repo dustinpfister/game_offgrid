@@ -12,6 +12,7 @@ var Budget = (function () {
         payments : 0, // grand total payments
         start : 5000,
 
+        debits : [],
         incomes : [],
         drain : [// what is draining money
 
@@ -28,70 +29,7 @@ var Budget = (function () {
     // tabulate income
     tabIncome = function () {
 
-        current.income = Payments.tabulateCollection(current.incomes,Main());
-
-        /*
-        // loop over all income objects
-        current.incomes.forEach(function (income) {
-
-        // add to income based on income type
-        switch (income.incomeType) {
-
-        case 'over_time_always':
-
-        // a simple type that just adds an amount based on past total game time.
-
-        // months
-        current.income += income.amount * Main().m * income.count;
-
-        // day
-        current.income += income.amount * income.count / 30 * Main().d;
-
-        break;
-
-        case 'job':
-
-        // add in base
-        current.income += income.base;
-
-        // loop over payDays array
-        income.payDays.forEach(function (payDay) {
-
-        var gt = Main(),
-        amount,
-        gameDay = gt.m * 30 + gt.d;
-
-        // I may not need the payDay bool, but for now thats how I have it
-        if (gameDay >= payDay.forGameDay) {
-
-        payDay.payed = true;
-
-        }
-
-        if (payDay.payed) {
-
-        amount = 0;
-
-        payDay.hours.forEach(function (hours) {
-
-        amount += hours.count * hours.rate;
-
-        });
-
-        // add in hours data for the job
-        current.income += amount;
-
-        }
-
-        });
-
-        break;
-
-        }
-
-        });
-
-         */
+        current.income = Payments.tabulateCollection(current.incomes, Main());
 
     };
 
@@ -105,9 +43,11 @@ var Budget = (function () {
 
         tabIncome();
 
+        current.payments = Payments.tabulateCollection(current.debits, Main());
+
         // just subtract grand payments form grand total income
         //console.log(current.income);
-        current.bal = current.start + current.income; //current.income - current.payments;
+        current.bal = current.start + current.income - current.payments; //current.income - current.payments;
 
     };
 
@@ -132,8 +72,7 @@ var Budget = (function () {
 
         // convert incomes Object array into [Payment Type Class] array
         current.incomes = Payments.createTypedArray(current.incomes);
-
-        console.log(Payments.createTypedArray(current.incomes));
+        current.debits = Payments.createTypedArray(current.debits);
 
         //console.log(current.incomes);
 
