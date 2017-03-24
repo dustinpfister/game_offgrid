@@ -3,12 +3,14 @@
 1.1.x - Payments
 
 * displaying income, and payment amounts in the budget state.
-
+* basic tool that will dump current JSON of game save to a textarea element
+* added Main.buildState() that will return a JSON save state from the current state of all modules.
 
 todo for 1.1.x :
 
 * merge down task for 'job' income type.
-* basic tool that will dump current JSON of game save to a textarea element
+* start a payments system similar to your income types
+
 
 
 other todo:
@@ -20,6 +22,13 @@ other todo:
 
 
 notes:
+
+Job Type:
+
+* tabulating an instance
+* creating an instance
+* merging down a history into base
+* push a new pay day
 
 
 

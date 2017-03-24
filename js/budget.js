@@ -1,4 +1,5 @@
 
+
 // The Budget
 var Budget = (function () {
 
@@ -27,67 +28,70 @@ var Budget = (function () {
     // tabulate income
     tabIncome = function () {
 
-        current.income = 0;
+        current.income = Payments.tabulateCollection(current.incomes,Main());
 
+        /*
         // loop over all income objects
         current.incomes.forEach(function (income) {
 
-            // add to income based on income type
-            switch (income.incomeType) {
+        // add to income based on income type
+        switch (income.incomeType) {
 
-            case 'over_time_always':
+        case 'over_time_always':
 
-                // a simple type that just adds an amount based on past total game time.
+        // a simple type that just adds an amount based on past total game time.
 
-                // months
-                current.income += income.amount * Main().m * income.count;
+        // months
+        current.income += income.amount * Main().m * income.count;
 
-                // day
-                current.income += income.amount * income.count / 30 * Main().d;
+        // day
+        current.income += income.amount * income.count / 30 * Main().d;
 
-                break;
+        break;
 
-            case 'job':
+        case 'job':
 
-                // add in base
-                current.income += income.base;
+        // add in base
+        current.income += income.base;
 
-                // loop over payDays array
-                income.payDays.forEach(function (payDay) {
+        // loop over payDays array
+        income.payDays.forEach(function (payDay) {
 
-                    var gt = Main(),
-                    amount,
-                    gameDay = gt.m * 30 + gt.d;
+        var gt = Main(),
+        amount,
+        gameDay = gt.m * 30 + gt.d;
 
-                    // I may not need the payDay bool, but for now thats how I have it
-                    if (gameDay >= payDay.forGameDay) {
+        // I may not need the payDay bool, but for now thats how I have it
+        if (gameDay >= payDay.forGameDay) {
 
-                        payDay.payed = true;
+        payDay.payed = true;
 
-                    }
+        }
 
-                    if (payDay.payed) {
+        if (payDay.payed) {
 
-                        amount = 0;
+        amount = 0;
 
-                        payDay.hours.forEach(function (hours) {
+        payDay.hours.forEach(function (hours) {
 
-                            amount += hours.count * hours.rate;
-
-                        });
-
-                        // add in hours data for the job
-                        current.income += amount;
-
-                    }
-
-                });
-
-                break;
-
-            }
+        amount += hours.count * hours.rate;
 
         });
+
+        // add in hours data for the job
+        current.income += amount;
+
+        }
+
+        });
+
+        break;
+
+        }
+
+        });
+
+         */
 
     };
 
@@ -123,6 +127,13 @@ var Budget = (function () {
             current = JSON.parse(budgetObj);
 
         }
+
+        console.log(current.incomes);
+
+        // convert incomes Object array into [Payment Type Class] array
+        current.incomes = Payments.createTypedArray(current.incomes);
+
+        console.log(Payments.createTypedArray(current.incomes));
 
         //console.log(current.incomes);
 
