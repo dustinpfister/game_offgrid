@@ -1,21 +1,14 @@
 
+1.2.x - Basic Interface
 
-1.1.x - Payments.js
-
-* displaying income, and payment amounts in the budget state.
-* basic tool that will dump current JSON of game save to a textarea element
-* added Main.buildState() that will return a JSON save state from the current state of all modules.
-* merge down task for 'job' income type.
-* added a new payments.js module to help with "payment types" that are used for both income and payments
-todo for 1.1.x :
-
-
-* start a payments system similar to your income types
+* basic interface that can be used to switch between states
+* title state
+* load state
 
 
 
 other todo:
-* basic interface that can be used to switch between states
+
 * make an items_db.json file that will contain data for all game items.
 * start using grunt to automate version number bumping, ect.
 

@@ -144,30 +144,15 @@ var game = (function () {
         // preload
         preload : function () {
 
-            // img and spritesheets
-            game.load.image('tiles_map', 'img/tiles_16.png');
-            game.load.spritesheet('items_2_1', 'img/items_2_1.png', 32, 16);
-            game.load.spritesheet('items_1_2', 'img/items_1_2.png', 16, 32);
-
-            // fonts
-            game.load.bitmapFont('zelda', 'fonts/font_zelda.png', 'fonts/font_zelda.xml');
-
-            // json
-            game.load.json('save_default', 'json/save_default.json');
+            game.load.image('loadingbar', 'img/loadingbar.png');
 
         },
 
         // create
         create : function () {
 
-            game.state.add('parcel', Parcel.phaserState);
-            game.state.add('person', Person.phaserState);
-            game.state.add('budget', Budget.phaserState);
-
-            // start by loading a new game by default
-            Main.newGame(JSON.stringify(game.cache.getJSON('save_default')));
-
-            game.state.start('budget');
+            game.state.add('load', Load);
+            game.state.start('load');
 
         },
 
