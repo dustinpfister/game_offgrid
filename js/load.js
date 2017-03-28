@@ -21,6 +21,7 @@ var Load = (function () {
 
             game.load.spritesheet('button', 'img/button.png', 160, 45);
 
+            game.load.image('basic_menu', 'img/basic_menu.png');
             game.load.image('tiles_map', 'img/tiles_16.png');
             game.load.spritesheet('items_2_1', 'img/items_2_1.png', 32, 16);
             game.load.spritesheet('items_1_2', 'img/items_1_2.png', 16, 32);

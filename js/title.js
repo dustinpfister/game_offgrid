@@ -16,7 +16,9 @@ var Title = (function () {
             // new game button
             button = game.add.button(0, 0, 'button', function () {
 
-                    game.state.start('person');
+                    Main.newGame(JSON.stringify(game.cache.getJSON('save_default')));
+
+                    game.state.start('parcel');
 
                 }, this, 0, 0, 1);
 

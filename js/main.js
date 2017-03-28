@@ -10,6 +10,41 @@ var Main = (function () {
 
     };
 
+    // what to do when the basic menu is clicked
+    api.menuClick = function (sprite, pointer) {
+
+        var index = Math.floor(pointer.x / 64);
+
+        switch (index) {
+
+        case 0:
+
+            console.log('case 0');
+
+            game.state.start('parcel');
+
+            break;
+
+        case 1:
+
+            console.log('case 1');
+
+            game.state.start('person');
+
+            break;
+
+        case 2:
+
+            console.log('case 2');
+
+            game.state.start('budget');
+
+            break;
+
+        }
+
+    };
+
     api.update = function () {
 
         var now = new Date(),

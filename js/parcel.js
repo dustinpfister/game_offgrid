@@ -30,11 +30,15 @@ var Parcel = (function () {
         map = game.add.tilemap();
         map.addTilesetImage('tiles_map', null, 16, 16);
 
+        var menu = game.add.sprite(0, 0, 'basic_menu');
+        menu.inputEnabled = true;
+        menu.events.onInputDown.add(Main.menuClick);
+
         // maps land layer
         layer_land = map.create('layer', land_width, land_height, 16, 16);
         layer_land.fixedToCamera = false;
         layer_land.x = game.height * .05;
-        layer_land.y = game.height * .05;
+        layer_land.y = game.height * .15;
         //layer_land.width = game.height * .85;
         //layer_land.height = game.height * .85;
 

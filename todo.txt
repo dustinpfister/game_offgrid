@@ -1,9 +1,12 @@
 
 1.2.x - Basic Interface
 
-* basic interface that can be used to switch between states
 * title state
 * load state
+
+do to for 1.2.x:
+* basic interface that can be used to switch between states
+
 
 
 
