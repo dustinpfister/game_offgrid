@@ -99,7 +99,6 @@ var Budget = (function () {
                 menu.inputEnabled = true;
                 menu.events.onInputDown.add(Main.menuClick);
 
-                // what to create for person state
                 text['disp'] = game.add.bitmapText(0, 18, 'zelda', '', 10);
 
                 text['income'] = game.add.bitmapText(10, 50, 'zelda', '', 10);

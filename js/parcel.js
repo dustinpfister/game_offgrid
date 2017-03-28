@@ -4,6 +4,7 @@ var Parcel = (function () {
     var land_width = 11,
     land_height = 8,
     map,
+    text = {},
     layer_land,
 
     // a clink or touch on the land
@@ -79,6 +80,8 @@ var Parcel = (function () {
             x,
             y;
 
+            text['disp'] = game.add.bitmapText(0, 18, 'zelda', '', 10);
+
             //app.add.sprite(0,0,'tiles_map');
             createLand();
             genLand();
@@ -86,7 +89,17 @@ var Parcel = (function () {
         },
 
         // update (ticks)
-        update : function () {}
+        update : function () {
+
+            var tstr;
+
+            // update Main
+            Main.update();
+
+            tstr = 't: ' + Main().t.toFixed(2) + ' Day : ' + Main().d + ' Month: ' + Main().m;
+            text['disp'].text = 'money: ' + Budget().bal.toFixed(2) + '; time:  ' + tstr;
+
+        }
 
     };
 
