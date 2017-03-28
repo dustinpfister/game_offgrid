@@ -100,8 +100,7 @@ var Budget = (function () {
                 menu.events.onInputDown.add(Main.menuClick);
 
                 // what to create for person state
-                text['money'] = game.add.bitmapText(10, 10, 'zelda', '', 10);
-                text['time'] = game.add.bitmapText(180, 10, 'zelda', '', 9);
+                text['disp'] = game.add.bitmapText(0, 18, 'zelda', '', 10);
 
                 text['income'] = game.add.bitmapText(10, 50, 'zelda', '', 10);
                 text['payments'] = game.add.bitmapText(10, 65, 'zelda', '', 10);
@@ -113,13 +112,15 @@ var Budget = (function () {
 
                 // what to update on each tick for the person state
                 var now = new Date(),
-                time = now - status.lastUpdate;
+                time = now - status.lastUpdate,
+                tstr;
 
                 // update Main
                 Main.update();
 
-                text['money'].text = 'money: ' + Budget().bal.toFixed(2);
-                text['time'].text = 'T : ' + Main().t.toFixed(2) + ' Day : ' + Main().d + ' Month: ' + Main().m;
+                tstr = 't: ' + Main().t.toFixed(2) + ' Day : ' + Main().d + ' Month: ' + Main().m;
+                text['disp'].text = 'money: ' + Budget().bal.toFixed(2) + '; time:  ' + tstr;
+
 
                 text['income'].text = 'all time credits: ' + Budget().income.toFixed(2);
                 text['payments'].text = 'all time debits: ' + Budget().payments.toFixed(2);

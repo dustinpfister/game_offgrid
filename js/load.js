@@ -44,7 +44,8 @@ var Load = (function () {
             // start by loading a new game by default
             Main.newGame(JSON.stringify(game.cache.getJSON('save_default')));
 
-            game.state.start('title');
+            //game.state.start('title');
+            game.state.start('budget');
 
         }
 
