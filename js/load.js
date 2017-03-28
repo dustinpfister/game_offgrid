@@ -38,11 +38,12 @@ var Load = (function () {
             game.state.add('parcel', Parcel.phaserState);
             game.state.add('person', Person.phaserState);
             game.state.add('budget', Budget.phaserState);
+            game.state.add('title', Title);
 
             // start by loading a new game by default
             Main.newGame(JSON.stringify(game.cache.getJSON('save_default')));
 
-            game.state.start('budget');
+            game.state.start('title');
 
         }
 
