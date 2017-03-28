@@ -30,6 +30,7 @@ var Parcel = (function () {
         map = game.add.tilemap();
         map.addTilesetImage('tiles_map', null, 16, 16);
 
+        // basic menu
         var menu = game.add.sprite(0, 0, 'basic_menu');
         menu.inputEnabled = true;
         menu.events.onInputDown.add(Main.menuClick);

@@ -117,6 +117,11 @@ var Person = (function () {
 
         create : function () {
 
+            // basic menu
+            var menu = game.add.sprite(0, 0, 'basic_menu');
+            menu.inputEnabled = true;
+            menu.events.onInputDown.add(Main.menuClick);
+
             // what to create for person state
             text['money'] = game.add.bitmapText(10, 10, 'zelda', '', 10);
             text['time'] = game.add.bitmapText(180, 10, 'zelda', '', 9);
@@ -152,49 +157,47 @@ var Person = (function () {
 // hard coded person status.
 Person.set(JSON.stringify({
 
-        weight : 140,
-        nutrient : {
+weight : 140,
+nutrient : {
 
-            protein : {
+protein : {
 
-                grams : 10,
-                eatTotal : 0,
-                startGrams : 10,
-                maxGrams : 120,
-                lossRate : 60 // loss of grams per game day
+grams : 10,
+eatTotal : 0,
+startGrams : 10,
+maxGrams : 120,
+lossRate : 60 // loss of grams per game day
 
-            },
+},
 
-            carbs : {
+carbs : {
 
-                grams : 40,
-                eatTotal : 0,
-                startGrams : 150,
-                maxGrams : 600,
-                lossRate : 300
+grams : 40,
+eatTotal : 0,
+startGrams : 150,
+maxGrams : 600,
+lossRate : 300
 
-            }
+}
 
-        },
+},
 
-        consumed : [
+consumed : [
 
-            // back beans
-            {
+// back beans{
 
-                id : 'f_0',
-                count : 30
+id : 'f_0',
+count : 30
 
-            },
+},
 
-            // apples
-            {
-                id : 'f_1',
-                count : 12
+// apples{
+id : 'f_1',
+count : 12
 
-            }
+}
 
-        ]
+]
 
-    }));
+}));
 */

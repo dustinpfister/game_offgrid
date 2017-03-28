@@ -94,6 +94,11 @@ var Budget = (function () {
 
             create : function () {
 
+                // basic menu
+                var menu = game.add.sprite(0, 0, 'basic_menu');
+                menu.inputEnabled = true;
+                menu.events.onInputDown.add(Main.menuClick);
+
                 // what to create for person state
                 text['money'] = game.add.bitmapText(10, 10, 'zelda', '', 10);
                 text['time'] = game.add.bitmapText(180, 10, 'zelda', '', 9);
